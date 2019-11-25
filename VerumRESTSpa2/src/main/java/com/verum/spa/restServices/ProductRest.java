@@ -61,12 +61,14 @@ public class ProductRest {
             @QueryParam("prodName") String prodName,
             @QueryParam("brand") String brand,
             @QueryParam("useCost") double useCost,
+            @QueryParam("prodStatus") int prodStatus,
             @QueryParam("prodId") int prodId
     ) throws ClassNotFoundException, SQLException {
         pro.setProdName(prodName);
         pro.setBrand(brand);
         pro.setUseCost(useCost);
         pro.setProdId(prodId);
+        pro.setProdStatus(prodStatus);
         if (daoPro.modifyProduct(pro)) {
             flag = true;
             Gson g = new Gson();
@@ -80,10 +82,8 @@ public class ProductRest {
     @PUT
     @Path("logDelete")
     public Response deleteProduct(
-            @QueryParam("prodStatus") int prodStatus,
             @QueryParam("prodId") int prodId
     ) throws ClassNotFoundException, SQLException {
-        pro.setProdStatus(prodStatus);
         pro.setProdId(prodId);
         if (daoPro.deleteProduct(pro)) {
             flag = true;

@@ -47,13 +47,14 @@ public class DAOProduct {
     }
 
     public boolean modifyProduct(Product pro) throws ClassNotFoundException, SQLException {
-        sql = "UPDATE PRODUCT SET prodName = ? ,brand= ?, useCost= ? WHERE prodId = ?";
+        sql = "UPDATE PRODUCT SET prodName = ? ,brand= ?, useCost= ? , prodStatus = ? WHERE prodId = ?";
         pst = conexion.startConnection().prepareStatement(sql);
 
         pst.setString(1, pro.getProdName());
         pst.setString(2, pro.getBrand());
         pst.setDouble(3, pro.getUseCost());
-        pst.setDouble(4, pro.getProdId());
+        pst.setDouble(4, pro.getProdStatus());
+        pst.setDouble(5, pro.getProdId());
 
         if (pst.executeUpdate() > 0) {
             conexion.closeConnection();
@@ -65,11 +66,10 @@ public class DAOProduct {
     }
 
     public boolean deleteProduct(Product pro) throws ClassNotFoundException, SQLException {
-        sql = "UPDATE PRODUCT SET prodStatus = ? WHERE prodId=?";
+        sql = "UPDATE PRODUCT SET prodStatus = 2 WHERE prodId=?";
 
         pst = conexion.startConnection().prepareStatement(sql);
-        pst.setInt(1, pro.getProdStatus());
-        pst.setInt(2, pro.getProdId());
+        pst.setInt(1, pro.getProdId());
 
         if (pst.executeUpdate() > 0) {
             conexion.closeConnection();
