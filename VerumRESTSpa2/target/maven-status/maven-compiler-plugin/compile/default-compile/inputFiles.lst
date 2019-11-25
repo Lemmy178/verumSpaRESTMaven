@@ -1,26 +1,24 @@
-/home/ruben/Desktop/Maven/VerumRESTSpa2/src/main/java/com/verum/spa/model/Treatment.java
-/home/ruben/Desktop/Maven/VerumRESTSpa2/src/main/java/com/verum/spa/restServices/CustomerREST.java
-/home/ruben/Desktop/Maven/VerumRESTSpa2/src/main/java/com/verum/spa/dao/DAOEmployee.java
-/home/ruben/Desktop/Maven/VerumRESTSpa2/src/main/java/com/verum/spa/model/Employee.java
-/home/ruben/Desktop/Maven/VerumRESTSpa2/src/main/java/com/verum/spa/restServices/ProductPruebasResource.java
-/home/ruben/Desktop/Maven/VerumRESTSpa2/src/main/java/com/verum/spa/restServices/ProductRest.java
-/home/ruben/Desktop/Maven/VerumRESTSpa2/src/main/java/com/verum/spa/model/Room.java
-/home/ruben/Desktop/Maven/VerumRESTSpa2/src/main/java/Main/main.java
-/home/ruben/Desktop/Maven/VerumRESTSpa2/src/main/java/com/verum/spa/model/Branch.java
-/home/ruben/Desktop/Maven/VerumRESTSpa2/src/main/java/com/verum/spa/restServices/ApplicationConfig.java
-/home/ruben/Desktop/Maven/VerumRESTSpa2/src/main/java/com/verum/spa/model/Customer.java
-/home/ruben/Desktop/Maven/VerumRESTSpa2/src/main/java/com/verum/spa/model/ConexionSpaMYSQL.java
-/home/ruben/Desktop/Maven/VerumRESTSpa2/src/main/java/com/verum/spa/core/JsonResponses.java
-/home/ruben/Desktop/Maven/VerumRESTSpa2/src/main/java/com/verum/spa/model/Product.java
-/home/ruben/Desktop/Maven/VerumRESTSpa2/src/main/java/com/verum/spa/restServices/RoomRest.java
-/home/ruben/Desktop/Maven/VerumRESTSpa2/src/main/java/com/verum/spa/dao/DAOTreatment.java
-/home/ruben/Desktop/Maven/VerumRESTSpa2/src/main/java/com/verum/spa/restServices/TreatmentRest.java
-/home/ruben/Desktop/Maven/VerumRESTSpa2/src/main/java/com/verum/spa/dao/DAOProduct.java
-/home/ruben/Desktop/Maven/VerumRESTSpa2/src/main/java/com/verum/spa/dao/DAOBranch.java
-/home/ruben/Desktop/Maven/VerumRESTSpa2/src/main/java/com/verum/spa/model/Person.java
-/home/ruben/Desktop/Maven/VerumRESTSpa2/src/main/java/com/verum/spa/restServices/EmployeeREST.java
-/home/ruben/Desktop/Maven/VerumRESTSpa2/src/main/java/com/verum/spa/dao/DAORoom.java
-/home/ruben/Desktop/Maven/VerumRESTSpa2/src/main/java/com/verum/spa/restServices/GenericResource.java
-/home/ruben/Desktop/Maven/VerumRESTSpa2/src/main/java/com/verum/spa/dao/DAOCustomer.java
-/home/ruben/Desktop/Maven/VerumRESTSpa2/src/main/java/com/verum/spa/restServices/BranchRest.java
-/home/ruben/Desktop/Maven/VerumRESTSpa2/src/main/java/com/verum/spa/model/Consumer.java
+D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\model\Product.java
+D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\restServices\TreatmentRest.java
+D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\core\JsonResponses.java
+D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\restServices\BranchRest.java
+D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\model\ConexionSpaMYSQL.java
+D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\dao\DAOBranch.java
+D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\model\Customer.java
+D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\model\Branch.java
+D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\dao\DAORoom.java
+D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\restServices\ProductRest.java
+D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\restServices\EmployeeREST.java
+D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\dao\DAOEmployee.java
+D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\dao\DAOProduct.java
+D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\restServices\GenericResource.java
+D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\model\Treatment.java
+D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\model\Employee.java
+D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\dao\DAOTreatment.java
+D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\model\Person.java
+D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\restServices\ApplicationConfig.java
+D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\restServices\RoomRest.java
+D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\model\Consumer.java
+D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\model\Room.java
+D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\restServices\CustomerREST.java
+D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\dao\DAOCustomer.java
