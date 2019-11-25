@@ -10,6 +10,10 @@ package com.verum.spa.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.verum.spa.dao.DAOBranch;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Room {
 
@@ -28,20 +32,24 @@ public class Room {
     @SerializedName("roomStatus")
     @Expose
     private int roomStatus;
-    @SerializedName("branchId")
-    @Expose
-    private int branchId;
+    private Branch branch;
 
     public Room() {
     }
 
     //add
     public Room(String roomName, String roomDesc, String photo, int roomStatus, int branchId) {
+        DAOBranch daoBranch = new DAOBranch();
         this.roomName=roomName;
         this.roomDesc=roomDesc;
         this.photo=photo;
         this.roomStatus=roomStatus;
-        this.branchId=branchId;
+        try {
+            this.branch = daoBranch.searchBranch(branchId);
+        } catch (Exception e){
+            e.printStackTrace();
+            this.branch = null;
+        }
     }
 
     public Room(int roomId, String roomName, String roomDesc, String photo, int roomStatus, int branchId) {
@@ -50,7 +58,13 @@ public class Room {
         this.roomDesc = roomDesc;
         this.photo = photo;
         this.roomStatus = roomStatus;
-        this.branchId = branchId;
+        DAOBranch daoBranch = new DAOBranch();
+        try {
+            this.branch = daoBranch.searchBranch(branchId);
+        } catch (Exception e){
+            e.printStackTrace();
+            this.branch = null;
+        }
     }
 
     public int getRoomId() {
@@ -93,12 +107,18 @@ public class Room {
         this.roomStatus = roomStatus;
     }
 
-    public int getBranchId() {
-        return branchId;
+    public Branch getBranch() {
+        return branch;
     }
 
     public void setBranchId(int branchId) {
-        this.branchId = branchId;
+        DAOBranch daoBranch = new DAOBranch();
+        try {
+            this.branch = daoBranch.searchBranch(branchId);
+        } catch (Exception e){
+            e.printStackTrace();
+            this.branch = null;
+        }
     }
 
 }

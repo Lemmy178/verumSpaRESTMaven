@@ -116,5 +116,24 @@ public class DAOBranch {
             return null;
         }
     }
-
+    
+    public Branch searchBranch(int BranchId) throws ClassNotFoundException, SQLException{
+        ResultSet rs;
+        Branch found = null;
+        Class.forName(connectionMySpa.getDRIVER());
+        sql = "SELECT * FROM BRANCH WHERE branchId = ?;";
+        pst = connectionMySpa.startConnection().prepareStatement(sql);
+        pst.setInt(1, BranchId);
+        rs = pst.executeQuery();
+        if (rs.first()) {
+            rs.beforeFirst();
+            while (rs.next()) {
+                found = new Branch(rs.getInt("branchId"), rs.getString("branchName"), rs.getString("branchAddress"), rs.getDouble("latitude"), rs.getDouble("longitude"), rs.getInt("branchStatus") == 1);
+            }
+            connectionMySpa.closeConnection();
+            return found;
+        } else {
+            return null;
+        }
+    }
 }

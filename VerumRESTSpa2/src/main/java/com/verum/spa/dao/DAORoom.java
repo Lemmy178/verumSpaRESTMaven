@@ -9,6 +9,7 @@
  *===========================================================================*/
 package com.verum.spa.dao;
 
+import com.verum.spa.model.Branch;
 import com.verum.spa.model.ConexionSpaMYSQL;
 import com.verum.spa.model.Room;
 import java.sql.PreparedStatement;
@@ -23,13 +24,14 @@ public class DAORoom {
     private PreparedStatement pst;
 
     public boolean addRoom(Room room) throws ClassNotFoundException, SQLException {
-        sql = "INSERT INTO ROOM(roomName,roomDesc,photo,roomStatus,branchId) VALUES (?,?,?,1,?)";
+        Class.forName(conexion.getDRIVER());
+        sql = "INSERT INTO ROOM(roomName,roomDesc,photo,roomStatus,branchId) VALUES (?,?,?,1,?);";
         pst = conexion.startConnection().prepareStatement(sql);
 
         pst.setString(1, room.getRoomName());
         pst.setString(2, room.getRoomDesc());
         pst.setString(3, room.getPhoto());
-        pst.setInt(4, room.getBranchId());
+        pst.setInt(4, room.getBranch().getBranchId());
 
         if (pst.executeUpdate() > 0) {
             conexion.closeConnection();
@@ -41,9 +43,9 @@ public class DAORoom {
     }
 
     public boolean modifyRoom(Room room) throws ClassNotFoundException, SQLException {
-        sql = "UPDATE ROOM SET roomName = ?, roomDesc=?,photo= ? WHERE roomId = ?";
+        sql = "UPDATE ROOM SET roomName = ?, roomDesc=?,photo= ? WHERE roomId = ?;";
         pst = conexion.startConnection().prepareStatement(sql);
-
+        Class.forName(conexion.getDRIVER());
         pst.setString(1, room.getRoomName());
         pst.setString(3, room.getRoomDesc());
         pst.setString(2, room.getPhoto());
@@ -59,8 +61,8 @@ public class DAORoom {
     }
 
     public boolean deleteRoom(Room room) throws ClassNotFoundException, SQLException {
-        sql = "UPDATE ROOM SET roomStatus = ? WHERE roomId = ?";
-
+        sql = "UPDATE ROOM SET roomStatus = ? WHERE roomId = ?;";
+        Class.forName(conexion.getDRIVER());
         pst = conexion.startConnection().prepareStatement(sql);
         pst.setInt(1, room.getRoomStatus());
         pst.setInt(2, room.getRoomId());
@@ -77,8 +79,8 @@ public class DAORoom {
     public ArrayList<Room> roomList() throws SQLException, ClassNotFoundException {
         ResultSet rs;
         ArrayList<Room> roomData = new ArrayList<>();
-
-        sql = "SELECT * FROM ROOM ";
+        Class.forName(conexion.getDRIVER());
+        sql = "SELECT * FROM ROOM;";
         pst = conexion.startConnection().prepareStatement(sql);
 
         rs = pst.executeQuery();
@@ -95,5 +97,5 @@ public class DAORoom {
             return null;
         }
     }
-
+    
 }
