@@ -13,6 +13,7 @@ package com.verum.spa.restServices;
 import com.google.gson.Gson;
 import com.verum.spa.core.JsonResponses;
 import com.verum.spa.dao.DAORoom;
+import com.verum.spa.model.Branch;
 import com.verum.spa.model.Room;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -32,7 +33,6 @@ import javax.ws.rs.core.Response;
 public class RoomRest {
     
     private DAORoom daoRoom = new DAORoom();
-    private String value = "";
     private boolean flag = false;
     private Room room = new Room();
     
@@ -47,7 +47,7 @@ public class RoomRest {
         room.setRoomName(roomName);
         room.setRoomDesc(roomDesc);
         room.setPhoto(photo);
-        room.setBranchId(branchId);
+        room.getBranch().setBranchId(branchId);
         if (daoRoom.addRoom(room)) {
             flag = true;
             return Response.ok(JsonResponses.jsonResponse(flag)).build();
@@ -62,11 +62,15 @@ public class RoomRest {
             @QueryParam("roomName") String roomName,
             @QueryParam("roomDesc") String roomDesc,
             @QueryParam("photo") String photo,
+            @QueryParam("branchId") int branchId,
+            @QueryParam("roomStatus") int roomStatus,
             @QueryParam("roomId") int roomId
     ) throws ClassNotFoundException, SQLException {
         room.setRoomName(roomName);
         room.setRoomDesc(roomDesc);
         room.setPhoto(photo);
+        room.getBranch().setBranchId(branchId);
+        room.setRoomStatus(roomStatus);
         room.setRoomId(roomId);
         if (daoRoom.modifyRoom(room)) {
             flag = true;
@@ -78,11 +82,7 @@ public class RoomRest {
     
     @PUT
     @Path("logDelete")
-    public Response deleteRoom(
-            @QueryParam("roomStatus") int roomStatus,
-            @QueryParam("roomId") int roomId
-    ) throws ClassNotFoundException, SQLException {
-        room.setRoomStatus(roomStatus);
+    public Response deleteRoom(@QueryParam("roomId") int roomId) throws ClassNotFoundException, SQLException {
         room.setRoomId(roomId);
         if (daoRoom.deleteRoom(room)) {
             flag = true;

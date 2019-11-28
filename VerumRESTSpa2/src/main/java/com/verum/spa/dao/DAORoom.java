@@ -43,13 +43,15 @@ public class DAORoom {
     }
 
     public boolean modifyRoom(Room room) throws ClassNotFoundException, SQLException {
-        sql = "UPDATE ROOM SET roomName = ?, roomDesc=?,photo= ? WHERE roomId = ?;";
+        sql = "UPDATE ROOM SET roomName = ?, roomDesc = ?, photo = ?, branchId = ?, roomStatus = ? WHERE roomId = ?;";
         pst = conexion.startConnection().prepareStatement(sql);
         Class.forName(conexion.getDRIVER());
         pst.setString(1, room.getRoomName());
-        pst.setString(3, room.getRoomDesc());
-        pst.setString(2, room.getPhoto());
-        pst.setInt(4, room.getRoomId());
+        pst.setString(2, room.getRoomDesc());
+        pst.setString(3, room.getPhoto());
+        pst.setInt(4, room.getBranch().getBranchId());
+        pst.setInt(5, room.getRoomStatus());
+        pst.setInt(6, room.getRoomId());
 
         if (pst.executeUpdate() > 0) {
             conexion.closeConnection();
@@ -61,12 +63,10 @@ public class DAORoom {
     }
 
     public boolean deleteRoom(Room room) throws ClassNotFoundException, SQLException {
-        sql = "UPDATE ROOM SET roomStatus = ? WHERE roomId = ?;";
+        sql = "UPDATE ROOM SET roomStatus = 2 WHERE roomId = ?;";
         Class.forName(conexion.getDRIVER());
         pst = conexion.startConnection().prepareStatement(sql);
-        pst.setInt(1, room.getRoomStatus());
-        pst.setInt(2, room.getRoomId());
-
+        pst.setInt(1, room.getRoomId());
         if (pst.executeUpdate() > 0) {
             conexion.closeConnection();
             return true;
@@ -80,7 +80,7 @@ public class DAORoom {
         ResultSet rs;
         ArrayList<Room> roomData = new ArrayList<>();
         Class.forName(conexion.getDRIVER());
-        sql = "SELECT * FROM ROOM;";
+        sql = "SELECT * FROM LIST_ROOM;";
         pst = conexion.startConnection().prepareStatement(sql);
 
         rs = pst.executeQuery();
@@ -89,7 +89,9 @@ public class DAORoom {
             rs.beforeFirst();
             while (rs.next()) {
                 roomData.add(new Room(rs.getInt("roomId"), rs.getString("roomName"), rs.getString("roomDesc"),
-                        rs.getString("photo"), rs.getInt("roomStatus"), rs.getInt("branchId")));
+                        rs.getString("photo"), rs.getInt("roomStatus"), 
+                        new Branch(rs.getInt("branchId"), rs.getString("branchName"), rs.getString("branchAddress"), 
+                                rs.getDouble("latitude"), rs.getDouble("longitude"), rs.getInt("branchStatus") == 1)));
             }
             conexion.closeConnection();
             return roomData;

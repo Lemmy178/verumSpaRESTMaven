@@ -10,61 +10,51 @@ package com.verum.spa.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.verum.spa.dao.DAOBranch;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Room {
 
     @SerializedName("roomId")
     @Expose
     private int roomId;
+    
     @SerializedName("roomName")
     @Expose
     private String roomName;
+    
     @SerializedName("roomDesc")
     @Expose
     private String roomDesc;
+    
     @SerializedName("photo")
     @Expose
     private String photo;
+    
     @SerializedName("roomStatus")
     @Expose
     private int roomStatus;
+    
     private Branch branch;
 
     public Room() {
+        this.branch = new Branch();
     }
 
     //add
-    public Room(String roomName, String roomDesc, String photo, int roomStatus, int branchId) {
-        DAOBranch daoBranch = new DAOBranch();
+    public Room(String roomName, String roomDesc, String photo, int roomStatus, Branch branch) {
         this.roomName=roomName;
         this.roomDesc=roomDesc;
         this.photo=photo;
         this.roomStatus=roomStatus;
-        try {
-            this.branch = daoBranch.searchBranch(branchId);
-        } catch (Exception e){
-            e.printStackTrace();
-            this.branch = null;
-        }
+        this.branch = branch;
     }
 
-    public Room(int roomId, String roomName, String roomDesc, String photo, int roomStatus, int branchId) {
+    public Room(int roomId, String roomName, String roomDesc, String photo, int roomStatus, Branch branch) {
         this.roomId = roomId;
         this.roomName = roomName;
         this.roomDesc = roomDesc;
         this.photo = photo;
         this.roomStatus = roomStatus;
-        DAOBranch daoBranch = new DAOBranch();
-        try {
-            this.branch = daoBranch.searchBranch(branchId);
-        } catch (Exception e){
-            e.printStackTrace();
-            this.branch = null;
-        }
+        this.branch = branch;
     }
 
     public int getRoomId() {
@@ -111,14 +101,8 @@ public class Room {
         return branch;
     }
 
-    public void setBranchId(int branchId) {
-        DAOBranch daoBranch = new DAOBranch();
-        try {
-            this.branch = daoBranch.searchBranch(branchId);
-        } catch (Exception e){
-            e.printStackTrace();
-            this.branch = null;
-        }
+    public void setBranch(Branch branch) {
+        this.branch = branch;
     }
 
 }
