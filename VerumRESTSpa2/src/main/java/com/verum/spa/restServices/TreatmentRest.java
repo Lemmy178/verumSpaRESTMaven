@@ -32,9 +32,7 @@ import javax.ws.rs.core.Response;
 public class TreatmentRest {
 
     private DAOTreatment daoTreat = new DAOTreatment();
-    private String value = "";
     private boolean flag = false;
-    private Treatment treatment = new Treatment();
 
     @POST
     @Path("add")
@@ -43,6 +41,7 @@ public class TreatmentRest {
             @QueryParam("treatDesc") String treatDesc,
             @QueryParam("cost") double cost
     ) throws ClassNotFoundException, SQLException {
+        Treatment treatment = new Treatment();
         treatment.setTreatName(treatName);
         treatment.setTreatDesc(treatDesc);
         treatment.setCost(cost);
@@ -60,11 +59,14 @@ public class TreatmentRest {
             @QueryParam("treatName") String treatName,
             @QueryParam("treatDesc") String treatDesc,
             @QueryParam("cost") double cost,
+            @QueryParam("treatStatus") int treatStatus,
             @QueryParam("treatId") int treatId
     ) throws ClassNotFoundException, SQLException {
+        Treatment treatment = new Treatment();
         treatment.setTreatName(treatName);
         treatment.setTreatDesc(treatDesc);
         treatment.setCost(cost);
+        treatment.setTreatStatus(treatStatus);
         treatment.setTreatId(treatId);
         if (daoTreat.modifyTreatment(treatment)) {
             flag = true;
@@ -77,12 +79,11 @@ public class TreatmentRest {
     @PUT
     @Path("logDelete")
     public Response deleteTreatment(
-            @QueryParam("treatId") int treatId,
-            @QueryParam("treatStatus") int treatStatus
+            @QueryParam("treatId") int treatId
     ) throws ClassNotFoundException, SQLException {
+        Treatment treatment = new Treatment();
         treatment.setTreatId(treatId);
-        treatment.setTreatStatus(treatStatus);
-        if (daoTreat.deleteTreatmentt(treatment)) {
+        if (daoTreat.deleteTreatment(treatment)) {
             flag = true;
             return Response.ok(JsonResponses.jsonResponse(flag)).build();
         } else {

@@ -24,7 +24,7 @@ public class DAOTreatment {
     public boolean addTreatment(Treatment treat) throws ClassNotFoundException, SQLException {
         sql = "INSERT INTO TREATMENT (treatName,treatDesc,cost,treatStatus) VALUES (?,?,?,1)";
         pst = conexion.startConnection().prepareStatement(sql);
-
+        Class.forName(conexion.getDRIVER());
         pst.setString(1, treat.getTreatName());
         pst.setString(2, treat.getTreatDesc());
         pst.setDouble(3, treat.getCost());
@@ -39,13 +39,14 @@ public class DAOTreatment {
     }
 
     public boolean modifyTreatment(Treatment treat) throws ClassNotFoundException, SQLException {
-        sql = "UPDATE TREATMENT SET treatName = ?, treatDesc=?,cost= ? WHERE treatId = ?";
+        sql = "UPDATE TREATMENT SET treatName = ?, treatDesc=?, cost= ?, treatStatus = ? WHERE treatId = ?";
         pst = conexion.startConnection().prepareStatement(sql);
-
+        Class.forName(conexion.getDRIVER());
         pst.setString(1, treat.getTreatName());
         pst.setString(2, treat.getTreatDesc());
         pst.setDouble(3, treat.getCost());
-        pst.setInt(4, treat.getTreatId());
+        pst.setInt(4, treat.getTreatStatus());
+        pst.setInt(5, treat.getTreatId());
 
         if (pst.executeUpdate() > 0) {
             conexion.closeConnection();
@@ -56,12 +57,11 @@ public class DAOTreatment {
         }
     }
 
-    public boolean deleteTreatmentt(Treatment treat) throws ClassNotFoundException, SQLException {
-        sql = "UPDATE TREATMENT SET treatStatus = ? WHERE treatId = ?";
-
+    public boolean deleteTreatment(Treatment treat) throws ClassNotFoundException, SQLException {
+        sql = "UPDATE TREATMENT SET treatStatus = 2 WHERE treatId = ?";
+        Class.forName(conexion.getDRIVER());
         pst = conexion.startConnection().prepareStatement(sql);
-        pst.setInt(1, treat.getTreatStatus());
-        pst.setInt(2, treat.getTreatId());
+        pst.setInt(1, treat.getTreatId());
 
         if (pst.executeUpdate() > 0) {
             conexion.closeConnection();
@@ -75,13 +75,10 @@ public class DAOTreatment {
     public ArrayList<Treatment> roomList() throws SQLException, ClassNotFoundException {
         ResultSet rs;
         ArrayList<Treatment> treatData = new ArrayList<>();
-
         sql = "SELECT * FROM TREATMENT";
         Class.forName(conexion.getDRIVER());
         pst = conexion.startConnection().prepareStatement(sql);
-
         rs = pst.executeQuery();
-
         if (rs.first()) {
             rs.beforeFirst();
             while (rs.next()) {
