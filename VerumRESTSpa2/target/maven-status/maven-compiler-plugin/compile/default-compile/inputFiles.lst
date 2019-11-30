@@ -5,7 +5,6 @@ D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaR
 D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\model\ConexionSpaMYSQL.java
 D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\dao\DAOBranch.java
 D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\model\Customer.java
-D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\model\Branch.java
 D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\dao\DAORoom.java
 D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\restServices\ProductRest.java
 D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\restServices\EmployeeREST.java
@@ -19,6 +18,7 @@ D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaR
 D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\restServices\ApplicationConfig.java
 D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\restServices\RoomRest.java
 D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\model\Consumer.java
+D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\model\Branch2.java
 D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\model\Room.java
 D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\restServices\CustomerREST.java
 D:\Richard John Rx\Documents\Mis Archivos\Universidad\4to cuatri\MySPA\verumSpaRESTMaven\VerumRESTSpa2\src\main\java\com\verum\spa\dao\DAOCustomer.java

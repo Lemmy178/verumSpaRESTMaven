@@ -13,7 +13,6 @@ package com.verum.spa.restServices;
 import com.google.gson.Gson;
 import com.verum.spa.core.JsonResponses;
 import com.verum.spa.dao.DAORoom;
-import com.verum.spa.model.Branch;
 import com.verum.spa.model.Room;
 import java.sql.SQLException;
 import java.util.ArrayList;

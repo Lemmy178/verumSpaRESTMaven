@@ -91,7 +91,7 @@ public class DAORoom {
                 roomData.add(new Room(rs.getInt("roomId"), rs.getString("roomName"), rs.getString("roomDesc"),
                         rs.getString("photo"), rs.getInt("roomStatus"), 
                         new Branch(rs.getInt("branchId"), rs.getString("branchName"), rs.getString("branchAddress"), 
-                                rs.getDouble("latitude"), rs.getDouble("longitude"), rs.getInt("branchStatus") == 1)));
+                                rs.getDouble("latitude"), rs.getDouble("longitude"), rs.getInt("branchStatus"))));
             }
             conexion.closeConnection();
             return roomData;
