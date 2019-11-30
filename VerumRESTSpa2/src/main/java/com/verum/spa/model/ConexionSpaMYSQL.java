@@ -15,7 +15,7 @@ public class ConexionSpaMYSQL {
     public ConexionSpaMYSQL() {
         this.DRIVER = "com.mysql.jdbc.Driver";
         this.PATH = "jdbc:mysql://localhost:3306/myspa?autoReconnect=true&useSSL=false";
-        this.USER = "root";
+        this.USER = "Ruben";
         this.PASS = "root";
     }
 

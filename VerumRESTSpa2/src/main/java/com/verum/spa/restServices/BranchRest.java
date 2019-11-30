@@ -11,7 +11,6 @@
 package com.verum.spa.restServices;
 
 import com.google.gson.Gson;
-import com.verum.spa.core.JsonResponses;
 import com.verum.spa.dao.DAOBranch;
 import com.verum.spa.model.Branch;
 import java.sql.SQLException;
@@ -43,7 +42,7 @@ public class BranchRest {
             @QueryParam("longitude") double longitude,
             @QueryParam("branchStatus") int branchStatus
     ) throws ClassNotFoundException, SQLException {
-        if (daoBranch.addBranch(branchName, branchAddress, latitude, longitude, branchStatus)) {
+        if (daoBranch.addBranch(branchName, branchAddress, latitude, longitude,branchStatus)) {
             return Response.ok(gson.toJson(true)).build();
         } else {
             return Response.status(Response.Status.BAD_REQUEST).entity(gson.toJson(false)).build();
