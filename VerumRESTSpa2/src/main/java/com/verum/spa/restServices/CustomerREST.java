@@ -83,8 +83,8 @@ public class CustomerREST extends Application {
             @QueryParam("conId") int conId,
             @QueryParam("perId") int perId
     ) throws ClassNotFoundException, SQLException {
-        if (daoCustomer.modifyCustomer(firstName, lastName1,lastName2,gender,perAddress,telephone,pass,email,
-                cusStatus,charge,cusId,conId,perId)) {
+        if (daoCustomer.modifyCustomer(firstName, lastName1, lastName2, gender, perAddress, telephone, pass, email,
+                cusStatus, charge, cusId, conId, perId)) {
             flag = true;
             return Response.ok(JsonResponses.jsonResponse(flag)).build();
         } else {
