@@ -11,13 +11,11 @@
 package com.verum.spa.restServices;
 
 import com.google.gson.Gson;
-import com.verum.spa.core.JsonResponses;
 import com.verum.spa.dao.DAOBranch;
 import com.verum.spa.model.Branch;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.ws.rs.Consumes;
-import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -34,19 +32,20 @@ public class BranchRest {
 
     private DAOBranch daoBranch = new DAOBranch();
     private Branch branch = new Branch();
-
+    Gson gson = new Gson();
     @POST
     @Path("add")
     public Response addBranch(
             @QueryParam("branchName") String branchName,
             @QueryParam("branchAddress") String branchAddress,
             @QueryParam("latitude") double latitude,
-            @QueryParam("longitude") double longitude
+            @QueryParam("longitude") double longitude,
+            @QueryParam("branchStatus") int branchStatus
     ) throws ClassNotFoundException, SQLException {
-        if (daoBranch.addBranch(branchName, branchAddress, latitude, longitude)) {
-            return Response.ok(JsonResponses.jsonResponse(true)).build();
+        if (daoBranch.addBranch(branchName, branchAddress, latitude, longitude,branchStatus)) {
+            return Response.ok(gson.toJson(true)).build();
         } else {
-            return Response.status(Response.Status.BAD_REQUEST).entity(JsonResponses.jsonResponse(false)).build();
+            return Response.status(Response.Status.BAD_REQUEST).entity(gson.toJson(false)).build();
         }
     }
 
@@ -60,19 +59,19 @@ public class BranchRest {
             @QueryParam("longitude") double longitude,
             @QueryParam("branchStatus") int branchStatus) throws ClassNotFoundException, SQLException {
         if (daoBranch.modifyBranch(branchId, branchName, branchAddress, latitude, longitude, branchStatus)) {
-            return Response.ok(JsonResponses.jsonResponse(true)).build();
+            return Response.ok(gson.toJson(true)).build();
         } else {
-            return Response.status(Response.Status.BAD_REQUEST).entity(JsonResponses.jsonResponse(false)).build();
+            return Response.status(Response.Status.BAD_REQUEST).entity(gson.toJson(false)).build();
         }
     }
 
     @PUT
-    @Path("logDeletee")
-    public Response delBranch(@QueryParam("idPro") int idPro) throws ClassNotFoundException, SQLException {
-        if (daoBranch.changeStatusBranch(idPro)) {
-            return Response.ok(JsonResponses.jsonResponse(true)).build();
+    @Path("logDelete")
+    public Response delBranch(@QueryParam("idBranch") int idBranch) throws ClassNotFoundException, SQLException {
+        if (daoBranch.changeStatusBranch(idBranch)) {
+            return Response.ok(gson.toJson(true)).build();
         } else {
-            return Response.status(Response.Status.BAD_REQUEST).entity(JsonResponses.jsonResponse(false)).build();
+            return Response.status(Response.Status.BAD_REQUEST).entity(gson.toJson(false)).build();
         }
     }
 

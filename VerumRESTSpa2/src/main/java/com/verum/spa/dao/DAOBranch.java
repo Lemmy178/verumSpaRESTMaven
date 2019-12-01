@@ -21,10 +21,10 @@ public class DAOBranch {
     private String sql = "";
     private PreparedStatement pst;
 
-    public boolean addBranch(String branchName, String branchAddress, double latitude, double longitude) throws SQLException, ClassNotFoundException {
+    public boolean addBranch(String branchName, String branchAddress, double latitude, double longitude,int status) throws SQLException, ClassNotFoundException {
 
         sql = "INSERT INTO BRANCH (branchName,branchAddress,latitude,"
-                + "longitude,branchStatus) VALUES (?,?,?,?,1)";
+                + "longitude,branchStatus) VALUES (?,?,?,?,?)";
 
         Class.forName(connectionMySpa.getDRIVER());
 
@@ -34,7 +34,8 @@ public class DAOBranch {
         pst.setString(2, branchAddress);
         pst.setDouble(3, latitude);
         pst.setDouble(4, longitude);
-
+        pst.setInt(5, status);
+        
         if (pst.executeUpdate() > 0) {
             connectionMySpa.closeConnection();
             return true;
@@ -109,31 +110,12 @@ public class DAOBranch {
         if (rs.first()) {
             rs.beforeFirst();
             while (rs.next()) {
-                branchData.add(new Branch(rs.getInt("branchId"), rs.getString("branchName"), rs.getString("branchAddress"), rs.getDouble("latitude"), rs.getDouble("longitude"), rs.getInt("branchStatus") == 1));
+                branchData.add(new Branch(rs.getInt("branchId"), rs.getString("branchName"), rs.getString("branchAddress"), rs.getDouble("latitude"), rs.getDouble("longitude"), rs.getInt("branchStatus")==1?1:0));
             }
             return branchData;
         } else {
             return null;
         }
     }
-    
-    public Branch searchBranch(int BranchId) throws ClassNotFoundException, SQLException{
-        ResultSet rs;
-        Branch found = null;
-        Class.forName(connectionMySpa.getDRIVER());
-        sql = "SELECT * FROM BRANCH WHERE branchId = ?;";
-        pst = connectionMySpa.startConnection().prepareStatement(sql);
-        pst.setInt(1, BranchId);
-        rs = pst.executeQuery();
-        if (rs.first()) {
-            rs.beforeFirst();
-            while (rs.next()) {
-                found = new Branch(rs.getInt("branchId"), rs.getString("branchName"), rs.getString("branchAddress"), rs.getDouble("latitude"), rs.getDouble("longitude"), rs.getInt("branchStatus") == 1);
-            }
-            connectionMySpa.closeConnection();
-            return found;
-        } else {
-            return null;
-        }
-    }
+
 }
