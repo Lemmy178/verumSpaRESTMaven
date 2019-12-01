@@ -23,7 +23,7 @@ public class DAOEmployee {
 
     public static boolean addEmployee(Employee emp, String conName, String pass, String charge) throws ClassNotFoundException, SQLException {
         sql = "CALL ADD_EMPLOYEE(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        pst = conexion.startConnection().prepareStatement(sql);
+        pst = conexion.startConnection2().prepareStatement(sql);
 
         pst.setString(1, emp.getFirstName());//
         pst.setString(2, emp.getLastName1());//
@@ -82,7 +82,7 @@ public class DAOEmployee {
     public boolean deleteEmployee(int empId) throws ClassNotFoundException, SQLException {
         sql = "UPDATE EMPLOYEE SET empStatus = 2 WHERE empId=?";
 
-        pst = conexion.startConnection().prepareStatement(sql);
+        pst = conexion.startConnection2().prepareStatement(sql);
 
         pst.setInt(1, empId);
 
@@ -101,18 +101,18 @@ public class DAOEmployee {
         sql = "SELECT * FROM LIST_EMPLOYEE";
 
         Class.forName(conexion.getDRIVER());
-        pst = conexion.startConnection().prepareStatement(sql);
+        pst = conexion.startConnection2().prepareStatement(sql);
         rs = pst.executeQuery();
         if (rs.first()) {
             rs.beforeFirst();
             while (rs.next()) {
 //            int empId, String empNumber, String empPosition, int empStatus, String photo, int conId,
 //            String conName , String pass , String charge , String firstName , String lastName1 , String lastName2 ,
-//            String gender , String perAddress , String telephone , String rfc
+//            String gender , String perAddress , String telephone , String rfc, int perId
                 employeeData.add(new Employee(rs.getInt("empId"), rs.getString("empNumber"), rs.getString("empPosition"),
                         rs.getInt("empStatus"), rs.getString("photo"), rs.getInt("conId"), rs.getString("conName"), rs.getString("pass"),
                         rs.getString("charge"), rs.getString("firstName"), rs.getString("lastName1"), rs.getString("lastName2"),
-                        rs.getString("gender"), rs.getString("perAddress"), rs.getString("telephone"), rs.getString("rfc")));
+                        rs.getString("gender"), rs.getString("perAddress"), rs.getString("telephone"), rs.getString("rfc"), rs.getInt("perId")));
             }
             conexion.closeConnection();
             return employeeData;
@@ -135,11 +135,11 @@ public class DAOEmployee {
             while (rs.next()) {
 //            int empId, String empNumber, String empPosition, int empStatus, String photo, int conId,
 //            String conName , String pass , String role , String firstName , String lastName1 , String lastName2 ,
-//            String gender , String perAddress , String telephone , String rfc
+//            String gender , String perAddress , String telephone , String rfc, int perId
                 emp1 = new Employee(rs.getInt("empId"), rs.getString("empNumber"), rs.getString("empPosition"),
                         rs.getInt("empStatus"), rs.getString("photo"), rs.getInt("conId"), rs.getString("conName"), rs.getString("pass"),
                         rs.getString("role"), rs.getString("firstName"), rs.getString("lastName1"), rs.getString("lastName2"),
-                        rs.getString("gender"), rs.getString("perAddress"), rs.getString("telephone"), rs.getString("rfc"));
+                        rs.getString("gender"), rs.getString("perAddress"), rs.getString("telephone"), rs.getString("rfc"), rs.getInt("perId"));
             }
             conexion.closeConnection();
             return emp1;

@@ -81,11 +81,11 @@ public class EmployeeREST extends Application {
             @QueryParam("gender") String gender,
             @QueryParam("perAddress") String perAddress,
             @QueryParam("telephone") String telephone,
-            @QueryParam("pass") String pass,
             @QueryParam("empPosition") String empPosition,
             @QueryParam("empStatus") int empStatus,
             @QueryParam("photo") String photo,
             @QueryParam("charge") String charge,
+            @QueryParam("pass") String pass,
             @QueryParam("empId") int empId,
             @QueryParam("conId") int conId,
             @QueryParam("perId") int perId

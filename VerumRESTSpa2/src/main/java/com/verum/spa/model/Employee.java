@@ -37,8 +37,8 @@ public class Employee extends Person {
     //list method
     public Employee(int empId, String empNumber, String empPosition, int empStatus, String photo, int conId,
             String conName, String pass, String role, String firstName, String lastName1, String lastName2,
-            String gender, String perAddress, String telephone, String rfc) {
-        super(firstName, lastName1, lastName2, gender, perAddress, telephone, rfc);
+            String gender, String perAddress, String telephone, String rfc, int perId) {
+        super(perId,firstName, lastName1, lastName2, gender, perAddress, telephone, rfc);
         this.empId = empId;
         this.empNumber = empNumber;
         this.empPosition = empPosition;

@@ -105,7 +105,7 @@ public class DAOCustomer {
                 customerData.add(new Customer(rs.getInt("cusId"), rs.getString("uniqueNumber"), rs.getString("email"),
                         rs.getInt("cusStatus"), rs.getInt("conId"), rs.getString("conName"), rs.getString("pass"), rs.getString("charge"),
                         rs.getString("firstName"), rs.getString("lastName1"), rs.getString("lastName2"),
-                        rs.getString("gender"), rs.getString("perAddress"), rs.getString("telephone"), rs.getString("rfc")));
+                        rs.getString("gender"), rs.getString("perAddress"), rs.getString("telephone"), rs.getString("rfc"), rs.getInt("perId")));
             }
             conexion.closeConnection();
             return customerData;
@@ -128,10 +128,10 @@ public class DAOCustomer {
             while (rs.next()) {
 //              String uniqueNumber, String email, int cusStatus, String conName, String pass, String role, String firstName, 
 //              String lastName1, String lastName2, String gender, String perAddress, String telepnohe, String rfc
-                customer1 = new Customer(rs.getInt("cusStatus"), rs.getString("uniqueNumber"), rs.getString("email"),
-                        rs.getInt("cusStatus"), rs.getInt("conId"), rs.getString("conName"), rs.getString("pass"), rs.getString("role"),
+                customer1 = new Customer(rs.getInt("cusId"), rs.getString("uniqueNumber"), rs.getString("email"),
+                        rs.getInt("cusStatus"), rs.getInt("conId"), rs.getString("conName"), rs.getString("pass"), rs.getString("charge"),
                         rs.getString("firstName"), rs.getString("lastName1"), rs.getString("lastName2"),
-                        rs.getString("gender"), rs.getString("perAddress"), rs.getString("telephone"), rs.getString("rfc"));
+                        rs.getString("gender"), rs.getString("perAddress"), rs.getString("telephone"), rs.getString("rfc"), rs.getInt("perId"));
             }
             conexion.closeConnection();
             return customer1;

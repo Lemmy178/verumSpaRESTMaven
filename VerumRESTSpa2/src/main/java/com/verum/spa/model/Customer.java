@@ -31,12 +31,12 @@ public class Customer extends Person {
     }
 
     public Customer(int cusId) {
-        this.cusId=cusId;
+        this.cusId = cusId;
     }
 
     //list method
-    public Customer(int cusId, String uniqueNumber, String email, int cusStatus, int conId, String conName, String pass, String role, String firstName, String lastName1, String lastName2, String gender, String perAddress, String telephone, String rfc) {
-        super(firstName, lastName1, lastName2, gender, perAddress, telephone, rfc);
+    public Customer(int cusId, String uniqueNumber, String email, int cusStatus, int conId, String conName, String pass, String role, String firstName, String lastName1, String lastName2, String gender, String perAddress, String telephone, String rfc, int perId) {
+        super(perId, firstName, lastName1, lastName2, gender, perAddress, telephone, rfc);
         this.cusId = cusId;
         this.uniqueNumber = uniqueNumber;
         this.email = email;
@@ -52,11 +52,11 @@ public class Customer extends Person {
         this.cusStatus = cusStatus;
         this.consumer = new Consumer(conName, pass, role);//conName, String pass, String role
     }
-    
+
     //modify
-    public Customer(int conId,String uniqueNumber, String email, int cusStatus, String conName, 
-            String pass, String role, String firstName, String lastName1, 
-            String lastName2, String gender, String perAddress, String telephone, 
+    public Customer(int conId, String uniqueNumber, String email, int cusStatus, String conName,
+            String pass, String role, String firstName, String lastName1,
+            String lastName2, String gender, String perAddress, String telephone,
             String rfc, String charge) {
         super(firstName, lastName1, lastName2, gender, perAddress, telephone, rfc);
         this.uniqueNumber = uniqueNumber;
